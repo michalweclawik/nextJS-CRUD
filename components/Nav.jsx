@@ -64,6 +64,34 @@ const Nav = () => {
           </>
         )}
       </div>
+
+      <div className="sm:hidden flex relative">
+        {isUserLoggedIn ? (
+          <div className="flex">
+            <Image
+              src="assets/images/logo.svg"
+              width={37}
+              height={37}
+              className="rounded-full"
+              alt="profile"
+            />
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values.map((provider) => (
+                <button
+                  className="black_btn"
+                  type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                >
+                  Sign in
+                </button>
+              ))}
+          </>
+        )}
+      </div>
     </nav>
   );
 };
